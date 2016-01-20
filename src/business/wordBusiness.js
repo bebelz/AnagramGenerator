@@ -6,24 +6,48 @@ const MIN_LENGTH = 3;
 
 function getAnagram(word, finished) {
     const wordLgth = word.length;
-    var toReturn;
+    var toReturn = new Array();
 
     if(wordLgth <= MIN_LENGTH) {
         finished();
     }
 
-    // FOR
-    wordDao.existsWordStartingWith(word, function(bool) {
-            if (bool) {
-                toReturn = word;
-                console.log("FOUND");
+    treatWordPart("",word,wordLgth,toReturn);
+
+    finished(toReturn);
+}
+
+// PREC : wordPart is OK
+function treatWordPart(wordPart, remaingParts, wordLgth,toReturn) {
+    var cpt = remaingParts.length;
+    for(var i = 0 ; i < cpt ; i++) {
+
+        var newWordPart = wordPart + remaingParts[i];
+        if(wait.for(wordDao.existsWordStartingWith, newWordPart, wordLgth)) {
+            if(newWordPart.length < wordLgth) {
+                var newRemainingPart = removeElementFromString(remaingParts,remaingParts[i]);
+                treatWordPart(newWordPart,newRemainingPart,wordLgth,toReturn);
+            } else {
+                toReturn.push(newWordPart);
+                console.log(newWordPart);
             }
         }
-    );
+    }
+}
 
-    setTimeout(function() {
-        finished(toReturn);
-    }, 1000);
+function removeElementFromString(str,elt) {
+    var toReturn = "";
+    var hasBeenRemoved = false;
+
+    for(var i = 0 ; i < str.length ; i++) {
+        if(elt == str[i] && !hasBeenRemoved) {
+            hasBeenRemoved = true;
+        } else {
+            toReturn += str[i];
+        }
+    }
+
+    return toReturn;
 }
 
 module.exports = {

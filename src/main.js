@@ -11,7 +11,7 @@ var wordCallbacks  = require('./rest/wordCallbacks.js');
 /* REST */
 server.post('/dico/:word', wordCallbacks.insertWord);
 server.head('/dico/:word', wordCallbacks.headWord);
-server.head('/anag/:word', wordCallbacks.getAnagram);
+server.get('/anag/:word', wordCallbacks.getAnagram);
 
 
 /* START */

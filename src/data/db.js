@@ -8,7 +8,7 @@ var knex = require('knex')({
         password : '',
         database : 'anagramme'
     },
-    debug: true
+    //debug: true
 });
 
 module.exports = {

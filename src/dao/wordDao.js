@@ -33,16 +33,16 @@ function headWord(word, cb) {
     ;
 }
 
-function existsWordStartingWith(start, cb) {
+function existsWordStartingWith(start, wordLenght, cb) {
 
     db.knex('dico').select('*')
         .where('word', 'like', start + '%')
 
         .then(function (rows) {
             if (rows.length > 0) {
-                cb(true);
+                cb(null, true);
             } else {
-                cb(false);
+                cb(null, false);
             }
         })
         .catch(function (error) {

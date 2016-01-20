@@ -31,14 +31,14 @@ function headWord(req, res, next) {
 function getAnagram(req, res, next) {
     const word = req.params.word;
 
-    wordBusiness.getAnagram(word, function (anagrammList) {
-        console.log(anagrammList);
-        if (typeof anagrammList !== 'undefined') {
-            res.send(200);
-        } else {
-            res.send(404);
+    wait.launchFiber(wordBusiness.getAnagram, word, function (anagrammList) {
+            console.log(anagrammList);
+            if (typeof anagrammList !== 'undefined' && anagrammList.length > 0) {
+                res.send(200,anagrammList);
+            } else {
+                res.send(404);
+            }
         }
-    }
     );
 }
 
