@@ -1,5 +1,5 @@
 /* Import */
-var wordDao = require('../dao/wordDao.js');
+var anagDao = require('../dao/anagDao.js');
 var wait = require('wait.for');
 
 const MIN_LENGTH = 3;
@@ -23,7 +23,7 @@ function treatWordPart(wordPart, remaingParts, wordLgth,toReturn) {
     for(var i = 0 ; i < cpt ; i++) {
 
         var newWordPart = wordPart + remaingParts[i];
-        if(wait.for(wordDao.existsWordStartingWith, newWordPart, wordLgth)) {
+        if(wait.for(anagDao.existsWordStartingWith, newWordPart, wordLgth)) {
             if(newWordPart.length < wordLgth) {
                 var newRemainingPart = removeElementFromString(remaingParts,remaingParts[i]);
                 treatWordPart(newWordPart,newRemainingPart,wordLgth,toReturn);

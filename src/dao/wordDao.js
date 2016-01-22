@@ -1,6 +1,5 @@
 /* Import */
 var db = require('../data/db.js');
-var restify = require('restify');
 
 function insertWord(word,cb) {
 
@@ -33,26 +32,9 @@ function headWord(word, cb) {
     ;
 }
 
-function existsWordStartingWith(start, wordLenght, cb) {
 
-    db.knex('dico').select('*')
-        .where('word', 'like', start + '%')
-
-        .then(function (rows) {
-            if (rows.length > 0) {
-                cb(null, true);
-            } else {
-                cb(null, false);
-            }
-        })
-        .catch(function (error) {
-            console.error(error);
-        })
-    ;
-}
 
 module.exports = {
     insertWord: insertWord,
-    headWord: headWord,
-    existsWordStartingWith: existsWordStartingWith
+    headWord: headWord
 };

@@ -1,7 +1,5 @@
 /* Import */
 var wordDao = require('../dao/wordDao.js');
-var wordBusiness = require('../business/wordBusiness.js');
-var wait = require('wait.for');
 
 function insertWord(req, res, next) {
     const word = req.params.word;
@@ -28,22 +26,9 @@ function headWord(req, res, next) {
     );
 }
 
-function getAnagram(req, res, next) {
-    const word = req.params.word;
 
-    wait.launchFiber(wordBusiness.getAnagram, word, function (anagrammList) {
-            console.log(anagrammList);
-            if (typeof anagrammList !== 'undefined' && anagrammList.length > 0) {
-                res.send(200,anagrammList);
-            } else {
-                res.send(404);
-            }
-        }
-    );
-}
 
 module.exports = {
     insertWord: insertWord,
-    headWord: headWord,
-    getAnagram: getAnagram
+    headWord: headWord
 };
