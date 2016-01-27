@@ -1,6 +1,10 @@
 /* Import */
 var wordDao = require('../dao/wordDao.js');
 
+function insertWordsWithFile(req, res, next) {
+    console.log(req.body);
+}
+
 function insertWord(req, res, next) {
     const word = req.params.word;
 
@@ -30,5 +34,6 @@ function headWord(req, res, next) {
 
 module.exports = {
     insertWord: insertWord,
+    insertWordsWithFile:insertWordsWithFile,
     headWord: headWord
 };

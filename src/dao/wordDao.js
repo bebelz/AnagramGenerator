@@ -14,6 +14,19 @@ function insertWord(word,cb) {
     ;
 }
 
+function insertWords(words,cb) {
+
+    db.knex('dico').insert({word: word})
+
+        .then(function(rows) {
+            cb(true);
+        })
+        .catch(function(error) {
+            cb(false);
+        })
+    ;
+}
+
 function headWord(word, cb) {
 
     db.knex('dico').select('*')
@@ -36,5 +49,6 @@ function headWord(word, cb) {
 
 module.exports = {
     insertWord: insertWord,
+    insertWords:insertWords,
     headWord: headWord
 };

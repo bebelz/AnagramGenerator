@@ -10,6 +10,7 @@ var anagCallbacks  = require('./rest/anagCallbacks.js');
 
 /* REST */
 server.post('/dico/:word', wordCallbacks.insertWord);
+server.post('/dico/', wordCallbacks.insertWordsWithFile);
 server.head('/dico/:word', wordCallbacks.headWord);
 server.get('/anag/:word', anagCallbacks.getAnagram);
 
