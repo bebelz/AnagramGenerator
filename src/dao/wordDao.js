@@ -3,7 +3,7 @@ var db = require('../data/db.js');
 
 function insertWord(word,cb) {
 
-    db.knex('dico').insert({word: word})
+    db.knex('words').insert({word: word})
 
         .then(function(rows) {
             cb(true);
@@ -14,9 +14,19 @@ function insertWord(word,cb) {
     ;
 }
 
+/*
+* PREC : words is an Array
+* PREC : words's size doesn't exceed batch size
+*/
 function insertWords(words,cb) {
+    var wordsToAdd = new Array();
 
-    db.knex('dico').insert({word: word})
+    words.forEach(function(word) {
+            wordsToAdd.push({word: word});
+        }
+    );
+
+    db.knex('words').insert(wordsToAdd)
 
         .then(function(rows) {
             cb(true);
@@ -29,7 +39,7 @@ function insertWords(words,cb) {
 
 function headWord(word, cb) {
 
-    db.knex('dico').select('*')
+    db.knex('words').select('*')
         .where({word: word})
 
         .then(function(rows) {

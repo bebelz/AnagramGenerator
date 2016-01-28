@@ -7,7 +7,7 @@ function getAnagram(req, res, next) {
 
     wait.launchFiber(anagBusiness.getAnagram, word, function (anagrammList) {
             console.log(anagrammList);
-            if (typeof anagrammList !== 'undefined' && anagrammList.length > 0) {
+            if (typeof anagrammList != 'undefined' && anagrammList.length > 0) {
                 res.send(200,anagrammList);
             } else {
                 res.send(404);

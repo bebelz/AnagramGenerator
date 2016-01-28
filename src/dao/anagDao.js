@@ -4,7 +4,7 @@ var restify = require('restify');
 
 function existsWordStartingWith(start, wordLenght, cb) {
 
-    db.knex('dico').select('*')
+    db.knex('words').select('*')
         .where('word', 'like', start + '%')
 
         .then(function (rows) {
