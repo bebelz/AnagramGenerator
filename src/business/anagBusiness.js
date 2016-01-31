@@ -6,7 +6,7 @@ const MIN_LENGTH = 3;
 
 function getAnagram(word, finished) {
     const wordLgth = word.length;
-    var toReturn = new Array();
+    var toReturn = [];
 
     if(wordLgth <= MIN_LENGTH) {
         finished();
@@ -25,12 +25,15 @@ function treatWordPart(wordPart, remaingParts, wordLgth,toReturn) {
         var newWordPart = wordPart + remaingParts[i];
         if(wait.for(anagDao.existsWordStartingWith, newWordPart, wordLgth)) {
             if(newWordPart.length < wordLgth) {
+                console.log('Continue with : ' + newWordPart);
                 var newRemainingPart = removeElementFromString(remaingParts,remaingParts[i]);
                 treatWordPart(newWordPart,newRemainingPart,wordLgth,toReturn);
             } else {
                 toReturn.push(newWordPart);
                 console.log(newWordPart);
             }
+        } else {
+            console.log('Refused : ' + newWordPart);
         }
     }
 }

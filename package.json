@@ -11,6 +11,9 @@
     "sequelize": "^3.15.0",
     "wait.for": "^0.6.6"
   },
+  "scripts" : {
+    "start" : "node src/main.js"
+  },
   "author": "wam",
   "license": "ISC"
 }

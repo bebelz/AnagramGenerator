@@ -6,6 +6,7 @@ function existsWordStartingWith(start, wordLenght, cb) {
 
     db.knex('words').select('*')
         .where('word', 'like', start + '%')
+        .andWhereRaw('LENGTH(word) = ?',wordLenght)
 
         .then(function (rows) {
             if (rows.length > 0) {

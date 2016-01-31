@@ -4,6 +4,7 @@ var wait = require('wait.for');
 
 function getAnagram(req, res, next) {
     const word = req.params.word;
+    console.log('Received : ' + word);
 
     wait.launchFiber(anagBusiness.getAnagram, word, function (anagrammList) {
             console.log(anagrammList);
