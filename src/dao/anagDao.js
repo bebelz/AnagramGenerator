@@ -1,26 +1,28 @@
 /* Import */
 var db = require('../data/db.js');
 var restify = require('restify');
+var wordBusiness = require('../business/wordBusiness');
 
-function existsWordStartingWith(start, wordLenght, cb) {
+function getAnagramm(word, cb) {
 
-    db.knex('words').select('*')
-        .where('word', 'like', start + '%')
-        .andWhereRaw('LENGTH(word) = ?',wordLenght)
+    var key = wordBusiness.getKey(word);
+
+    db.knex('words').select('word')
+        .where('key',key)
+        .andWhere('word', '!=', word)
 
         .then(function (rows) {
             if (rows.length > 0) {
-                cb(null, true);
+                cb(null, rows);
             } else {
-                cb(null, false);
+                cb('empty', null);
             }
         })
         .catch(function (error) {
             console.error(error);
         })
-    ;
 }
 
 module.exports = {
-    existsWordStartingWith: existsWordStartingWith
+    getAnagramm: getAnagramm
 };

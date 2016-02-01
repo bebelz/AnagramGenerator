@@ -1,5 +1,6 @@
 /* Import */
 var db = require('../data/db.js');
+var wordBusiness = require('../business/wordBusiness');
 
 function insertWord(word,cb) {
 
@@ -19,10 +20,11 @@ function insertWord(word,cb) {
 * PREC : words's size doesn't exceed batch size
 */
 function insertWords(words,cb) {
-    var wordsToAdd = new Array();
+    var wordsToAdd = [];
 
     words.forEach(function(word) {
-            wordsToAdd.push({word: word});
+            var key = wordBusiness.getKey(word);
+            wordsToAdd.push({key: key,word: word});
         }
     );
 

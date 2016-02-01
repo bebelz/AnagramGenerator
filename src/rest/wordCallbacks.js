@@ -12,11 +12,11 @@ function insertWordsWithFile(req, res, next) {
     });
 
     var cpt = 0;
-    var words = new Array();
+    var words = [];
     rl.on('line', function (line) {
         if(cpt == BATCH_SIZE) {
             wordDao.insertWords(words,function(){});
-            words = new Array();
+            words = [];
             cpt = 0;
         } else {
             words.push(line);
