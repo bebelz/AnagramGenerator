@@ -1,3 +1,5 @@
+'use strict';
+
 function getKey(word) {
     return word.split('').sort().toString().replace(/,/g ,'');
 }

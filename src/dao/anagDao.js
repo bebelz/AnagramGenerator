@@ -1,3 +1,5 @@
+'use strict';
+
 /* Import */
 var db = require('../data/db.js');
 var restify = require('restify');

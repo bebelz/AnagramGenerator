@@ -1,3 +1,5 @@
+'use strict';
+
 /* Knex */
 var mysql2 = require('mysql2');
 var knex = require('knex')({

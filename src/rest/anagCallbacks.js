@@ -1,3 +1,5 @@
+'use strict';
+
 /* Import */
 var anagDao = require('../dao/anagDao');
 

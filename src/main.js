@@ -1,3 +1,5 @@
+'use strict';
+
 /* Server */
 var restify = require('restify');
 var server = restify.createServer(null);
