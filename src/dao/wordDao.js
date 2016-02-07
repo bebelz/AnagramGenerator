@@ -4,6 +4,22 @@
 var db = require('../data/db.js');
 var wordBusiness = require('../business/wordBusiness');
 
+function initTable(cb) {
+
+    db.knex.schema.createTableIfNotExists('words', function(table) {
+        table.increments('id');
+        table.string('key','30');
+        table.string('word','30');
+    })
+        .then(function(data) {
+            cb(null, data);
+        })
+        .catch(function(error) {
+            cb(error, null);
+        })
+    ;
+}
+
 function insertWord(word,cb) {
 
     db.knex('words').insert({word: word})
@@ -62,6 +78,7 @@ function headWord(word, cb) {
 
 
 module.exports = {
+    initTable: initTable,
     insertWord: insertWord,
     insertWords:insertWords,
     headWord: headWord

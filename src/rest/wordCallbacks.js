@@ -7,6 +7,10 @@ const fs = require('fs');
 
 const BATCH_SIZE = 1000;
 
+function initTable(cb) {
+    wordDao.initTable(cb);
+}
+
 function insertWordsWithFile(req, res, next) {
 
     const rl = readline.createInterface({
@@ -59,6 +63,7 @@ function headWord(req, res, next) {
 
 
 module.exports = {
+    initTable: initTable,
     insertWord: insertWord,
     insertWordsWithFile:insertWordsWithFile,
     headWord: headWord
