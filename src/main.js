@@ -23,6 +23,14 @@ server.get('/anag/:word', anagCallbacks.getAnagram);
 
 
 /* START */
-server.listen(8080, function() {
-    console.log('%s listening at %s', server.name, server.url);
+wordCallbacks.initTable(function(err, data) {
+    if(!err) {
+        console.log('DB State OK');
+        server.listen(8080, function() {
+            console.log('%s listening at %s', server.name, server.url);
+        });
+
+    } else {
+        console.log(err);
+    }
 });
