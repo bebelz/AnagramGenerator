@@ -4,13 +4,16 @@
 var db = require('../data/db.js');
 var wordBusiness = require('../business/wordBusiness');
 
+const TABLE_NAME = 'words';
+
 function initTable(cb) {
 
-    db.knex.schema.createTableIfNotExists('words', function(table) {
-        table.increments('id');
-        table.string('key','30');
-        table.string('word','30');
-    })
+    db.knex.schema.createTableIfNotExists(TABLE_NAME, function(table) {
+            table.increments('id');
+            table.string('key','30');
+            table.string('word','30');
+        })
+
         .then(function(data) {
             cb(null, data);
         })
@@ -22,7 +25,7 @@ function initTable(cb) {
 
 function insertWord(word,cb) {
 
-    db.knex('words').insert({word: word})
+    db.knex(TABLE_NAME).insert({word: word})
 
         .then(function(rows) {
             cb(true);
@@ -46,7 +49,7 @@ function insertWords(words,cb) {
         }
     );
 
-    db.knex('words').insert(wordsToAdd)
+    db.knex(TABLE_NAME).insert(wordsToAdd)
 
         .then(function(rows) {
             cb(true);
@@ -59,7 +62,7 @@ function insertWords(words,cb) {
 
 function headWord(word, cb) {
 
-    db.knex('words').select('*')
+    db.knex(TABLE_NAME).select('*')
         .where({word: word})
 
         .then(function(rows) {

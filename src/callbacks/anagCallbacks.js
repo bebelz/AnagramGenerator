@@ -18,7 +18,13 @@ function getAnagram(req, res, next) {
             res.send(200, toReturn);
 
         } else {
-            res.send(404);
+            if(err == 'empty') {
+                // No Anagram found
+                res.send(404);
+            } else {
+                // Error(s) while Anagram's search
+                res.send(500);
+            }
         }
     });
 }

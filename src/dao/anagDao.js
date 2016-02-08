@@ -17,11 +17,12 @@ function getAnagramm(word, cb) {
             if (rows.length > 0) {
                 cb(null, rows);
             } else {
+                // No Anagagram found
                 cb('empty', null);
             }
         })
         .catch(function (error) {
-            console.error(error);
+            cb(error, null);
         })
 }
 
