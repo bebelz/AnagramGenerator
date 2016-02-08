@@ -1,7 +1,7 @@
 'use strict';
 
 /* Import */
-var anagDao = require('../dao/anagDao');
+const anagDao = require('../dao/anagDao');
 
 function getAnagram(req, res, next) {
     const word = req.params.word;

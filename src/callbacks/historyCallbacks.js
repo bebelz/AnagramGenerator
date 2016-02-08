@@ -1,4 +1,12 @@
 'use strict';
 
 /* Import */
-const wordDao = require('../dao/wordDao.js');
+const historyDao = require('../dao/historyDao.js');
+
+function initTable(cb) {
+    historyDao.initTable(cb);
+}
+
+module.exports = {
+    initTable: initTable
+};

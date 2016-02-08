@@ -1,8 +1,8 @@
 'use strict';
 
 /* Import */
-var db = require('../data/db.js');
-var wordBusiness = require('../business/wordBusiness');
+const db = require('../data/db.js');
+const wordBusiness = require('../business/wordBusiness');
 
 const TABLE_NAME = 'words';
 

@@ -1,7 +1,7 @@
 'use strict';
 
 /* Import */
-var db = require('../data/db.js');
+const db = require('../data/db.js');
 
 const TABLE_NAME = 'history';
 

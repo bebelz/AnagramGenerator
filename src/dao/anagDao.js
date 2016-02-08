@@ -1,9 +1,9 @@
 'use strict';
 
 /* Import */
-var db = require('../data/db.js');
-var restify = require('restify');
-var wordBusiness = require('../business/wordBusiness');
+const db = require('../data/db.js');
+const restify = require('restify');
+const wordBusiness = require('../business/wordBusiness');
 
 function getAnagramm(word, cb) {
 
