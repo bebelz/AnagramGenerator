@@ -1,13 +1,12 @@
 FROM node:5.5.0
 MAINTAINER Benoit BELZ
 
-ADD . /usr/src/app
-RUN mkdir -p /usr/src/app
-WORKDIR /usr/src/app
+RUN mkdir /src
+WORKDIR /src
 
-ONBUILD COPY package.json /usr/src/app/
-ONBUILD RUN npm install
-ONBUILD COPY . /usr/src/app
+ADD package.json /src/package.json
+RUN npm install
+COPY . /src
 
 EXPOSE  8080
 

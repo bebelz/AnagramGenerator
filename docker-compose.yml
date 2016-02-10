@@ -2,7 +2,5 @@ back:
   container_name: anag-node
   build: .
   ports:
-  - 8001:8080
+  - "8001:8080"
   env_file: .env
-  volumes:
-  - ~/anag-node:/usr/src/app
