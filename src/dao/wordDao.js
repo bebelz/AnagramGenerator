@@ -1,7 +1,7 @@
 'use strict';
 
 /* Import */
-const db = require('../data/db.js');
+const db = require('../data/db');
 const wordBusiness = require('../business/wordBusiness');
 
 const TABLE_NAME = 'words';
@@ -10,7 +10,7 @@ function initTable(cb) {
 
     db.knex.schema.createTableIfNotExists(TABLE_NAME, function(table) {
             table.increments('id');
-            table.string('key','30');
+            table.string('key','30'); // Add an index here when https://github.com/tgriesser/knex/issues/729 is fixed
             table.string('word','30');
         })
 

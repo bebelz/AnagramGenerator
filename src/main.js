@@ -25,12 +25,8 @@ server.get('/anag/:word', anagCallbacks.getAnagram);
 
 /* START */
 var initTasks = [];
-initTasks.push(function(callback) {
-    wordCallbacks.initTable(callback)
-});
-initTasks.push(function(callback) {
-    historyCallbacks.initTable(callback)
-});
+initTasks.push(wordCallbacks.initTable);
+initTasks.push(historyCallbacks.initTable);
 
 async.parallel(initTasks,function (err,data){
     if(!err) {

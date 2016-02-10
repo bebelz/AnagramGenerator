@@ -24,6 +24,7 @@ function getAnagramm(word, cb) {
         .catch(function (error) {
             cb(error, null);
         })
+    ;
 }
 
 module.exports = {

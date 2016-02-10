@@ -1,7 +1,7 @@
 'use strict';
 
 /* Import */
-const wordDao = require('../dao/wordDao.js');
+const wordDao = require('../dao/wordDao');
 const readline = require('readline');
 const fs = require('fs');
 

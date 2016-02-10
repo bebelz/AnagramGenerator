@@ -1,7 +1,7 @@
 'use strict';
 
 /* Import */
-const db = require('../data/db.js');
+const db = require('../data/db');
 
 const TABLE_NAME = 'history';
 
@@ -11,6 +11,7 @@ function initTable(cb) {
             table.increments('id');
             table.string('word','30');
             table.dateTime('date').defaultTo(db.knex.fn.now());
+            table.integer('status');
         })
 
         .then(function(data) {
@@ -22,15 +23,22 @@ function initTable(cb) {
     ;
 }
 
-function insertHistory(word, cb) {
+/*
+ * cb is Optionnal
+ */
+function insertHistory(word, status, cb) {
 
-    db.knex(TABLE_NAME).insert({word: word})
+    db.knex(TABLE_NAME).insert({word: word, status: status})
 
         .then(function(rows) {
-            cb(null, rows);
+            if(cb) {
+                cb(null, rows);
+            }
         })
         .catch(function(error) {
-            cb(error, null);
+            if(cb) {
+                cb(error, null);
+            }
         })
     ;
 }
