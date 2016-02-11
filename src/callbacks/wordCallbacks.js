@@ -44,7 +44,7 @@ function insertWord(req, res, next) {
         } else {
             res.send(500);
         }
-    })
+    });
 }
 
 function headWord(req, res, next) {

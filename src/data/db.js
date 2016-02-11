@@ -10,7 +10,7 @@ var knex = require('knex')({
         password : process.env.DB_PASSWORD,
         database : process.env.DB_NAME
     }
-    ,debug: true
+    //,debug: true
 });
 
 module.exports = {
