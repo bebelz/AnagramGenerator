@@ -10,7 +10,8 @@
     "async": "^1.5.2"
   },
   "scripts" : {
-    "start" : "node src/main.js"
+    "startProd" : "node src/mainProd.js",
+    "startDev" : "node src/mainDev.js"
   },
   "author": "wam",
   "license": "ISC"

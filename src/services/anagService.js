@@ -2,7 +2,7 @@
 
 /* Import */
 const anagDao = require('../dao/anagDao');
-const historyCallbacks = require('../callbacks/historyCallbacks');
+const historyService = require('./historyService');
 
 function getAnagram(req, res, next) {
     const word = req.params.word;
@@ -16,17 +16,17 @@ function getAnagram(req, res, next) {
             data.forEach( function(word) {
                 toReturn.data.push(word.word);
             });
-            historyCallbacks.insertHistoryOk(word);
+            historyService.insertHistoryOk(word);
             res.send(200, toReturn);
 
         } else {
             if(err == 'empty') {
                 // No Anagram found
-                historyCallbacks.insertHistoryOk(word);
+                historyService.insertHistoryOk(word);
                 res.send(404);
             } else {
                 // Error(s) while Anagram's search
-                historyCallbacks.insertHistoryKo(word);
+                historyService.insertHistoryKo(word);
                 res.send(500);
             }
         }
