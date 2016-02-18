@@ -1,7 +1,6 @@
 {
   "name": "anagram",
   "version": "1.0.0",
-  "description": "TaMere",
   "main": "src",
   "dependencies": {
     "knex": "^0.9.0",
