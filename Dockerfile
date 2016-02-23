@@ -10,4 +10,4 @@ COPY . /src
 
 EXPOSE  8080
 
-CMD [ "npm", "startProd" ]
+CMD [ "npm", "run", "startProd" ]
