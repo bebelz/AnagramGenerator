@@ -15,8 +15,23 @@ function insertHistoryKo(word, cb) {
     historyDao.insertHistory(word, 0, cb);
 }
 
+function getHistory(req, res, next) {
+    var offset = parseInt(req.params.offset);
+    var limit = parseInt(req.params.limit);
+
+    historyDao.getHistory(offset, limit, function(err, data) {
+        if(data != null && data.length > 0 && err == null) {
+            res.send(200,data);
+        } else {
+            console.log(err);
+            res.send(500);
+        }
+    });
+}
+
 module.exports = {
     initTable: initTable,
     insertHistoryOk: insertHistoryOk,
-    insertHistoryKo: insertHistoryKo
+    insertHistoryKo: insertHistoryKo,
+    getHistory: getHistory
 };

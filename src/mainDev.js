@@ -22,6 +22,7 @@ server.post('/dico/:word', wordService.insertWord);
 server.post('/dico/', wordService.insertWordsWithFile);
 server.head('/dico/:word', wordService.headWord);
 server.get('/anag/:word', anagService.getAnagram);
+server.get('/history/:offset/:limit', historyService.getHistory);
 
 /* START */
 var initTasks = [];

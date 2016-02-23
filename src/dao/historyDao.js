@@ -43,7 +43,25 @@ function insertHistory(word, status, cb) {
     ;
 }
 
+function getHistory(offset, limit, cb) {
+
+    db.knex(TABLE_NAME).select('word','date','status')
+        .where('status','1')
+        .orderBy('date', 'desc')
+        .offset(parseInt(offset))
+        .limit(parseInt(limit))
+
+        .then(function(rows) {
+                cb(null, rows);
+        })
+        .catch(function(error) {
+                cb(error, null);
+        })
+    ;
+}
+
 module.exports = {
     initTable: initTable,
-    insertHistory: insertHistory
+    insertHistory: insertHistory,
+    getHistory: getHistory
 };
