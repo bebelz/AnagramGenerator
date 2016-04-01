@@ -21,7 +21,9 @@ function getHistory(req, res, next) {
 
     historyDao.getHistory(offset, limit, function(err, data) {
         if(data != null && data.length > 0 && err == null) {
-            res.send(200,data);
+            var toReturn = {data: []};
+            toReturn.data.push(data);
+            res.send(200,toReturn);
         } else {
             console.log(err);
             res.send(500);
