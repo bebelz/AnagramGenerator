@@ -19,6 +19,7 @@ server.use(function crossOrigin(req,res,next){
 
 /* Routes */
 server.get('/anag/:word', anagService.getAnagram);
+server.get('/history/:offset/:limit', historyService.getHistory);
 
 /* START */
 var initTasks = [];
