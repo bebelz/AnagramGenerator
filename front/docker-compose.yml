@@ -1,6 +1,9 @@
-front:
-  container_name: anag-front
-  image: bbz/anag-front
-  build: .
-  ports:
-  - "8002:80"
+version: 2
+
+services:
+  front:
+    container_name: anag-front
+    build: .
+    image: bbz/anag-front:1.0
+    ports:
+    - "8002:80"

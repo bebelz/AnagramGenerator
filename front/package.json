@@ -12,7 +12,7 @@
     "karma-jasmine": "^0.3.7"
   },
   "scripts": {
-    "postinstall": "bower install",
+    "postinstall": "bower  --allow-root install",
     "prestart": "npm install",
     "start": "http-server -a 0.0.0.0 -p 8001",
     "pretest": "npm install",

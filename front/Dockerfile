@@ -1,9 +1,11 @@
-FROM httpd:2.4
+FROM bbz/webserver:1.0
 MAINTAINER Benoit BELZ
 
-RUN apt-get update
-RUN apt-get install nodejs npm
+COPY package.json /usr/local/apache2/htdocs/
+COPY bower.json /usr/local/apache2/htdocs/
+COPY .bowerrc /usr/local/apache2/htdocs/
+
+WORKDIR /usr/local/apache2/htdocs/
+RUN npm install --unsafe-perm --production
 
 COPY . /usr/local/apache2/htdocs/
-
-RUN apt-get autoremove nodejs npm

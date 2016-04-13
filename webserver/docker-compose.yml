@@ -1,0 +1,7 @@
+version: 2
+
+services:
+  webserver:
+    build: ../webserver/
+    image: bbz/webserver:1.0
+    command: /bin/true # We don't want to create a container for this image

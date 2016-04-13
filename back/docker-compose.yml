@@ -1,7 +1,10 @@
-back:
-  container_name: anag-node
-  image: bbz/anag-node
-  build: .
-  ports:
-  - "8001:8080"
-  env_file: .env
+version: 2
+
+services:
+  back:
+    container_name: anag-node
+    image: bbz/anag-node:1.0
+    build: .
+    ports:
+    - "8001:8080"
+    env_file: .env
