@@ -1,0 +1,14 @@
+{
+  "name": "test",
+  "version": "0.0.0",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "angular": "~1.5.x",
+    "angular-mocks": "~1.5.x",
+    "angular-resource" : "~1.5.x",
+    "angular-bootstrap": "~1.2.x",
+    "bootstrap": "~3.3.x",
+    "components-font-awesome": "~4.5.x"
+  }
+}

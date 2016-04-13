@@ -1,50 +1,32 @@
-<html>
-
+<!doctype html>
+<html lang="en">
 <head>
-  <base href="/">
+  <meta charset="utf-8">
+  <title>Sandbox</title>
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+  <link rel="stylesheet" href="bower_components/components-font-awesome/css/font-awesome.css">
+  <link rel="stylesheet" href="app.css">
 
-  <title>Anagrams Generator</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="bower_components/angular/angular.js"></script>
+  <script src="bower_components/angular-mocks/angular-mocks.js"></script>
+  <script src="bower_components/angular-resource/angular-resource.js"></script>
+  <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+  
+  <script src="app/app.js"></script>
+  <script src="app/finder/finder.component.js"></script>
+  <script src="app/history/history.component.js"></script>
+  <script src="app/main/main.component.js"></script>
+  <script src="app/services/anag.service.js"></script>
 
-  <!-- 1. Load libraries -->
-  <!-- IE required polyfills, in this exact order -->
-  <script src="node_modules/es6-shim/es6-shim.min.js"></script>
-  <script src="node_modules/systemjs/dist/system-polyfills.js"></script>
-  <script src="node_modules/angular2/es6/dev/src/testing/shims_for_IE.js"></script>
-  <script src="node_modules/angular2/bundles/angular2-polyfills.js"></script>
-  
-  <script src="node_modules/systemjs/dist/system.src.js"></script>
-  <script src="node_modules/rxjs/bundles/Rx.js"></script>
-  <script src="node_modules/angular2/bundles/angular2.dev.js"></script>
-  <script src="node_modules/angular2/bundles/router.dev.js"></script>
-  <script src="node_modules/angular2/bundles/http.dev.js"></script>
-  
-  <link rel="stylesheet" href="/node_modules/material-design-lite/material.min.css">
-  <script src="/node_modules/material-design-lite/material.min.js"></script>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    
-  <!-- 2. Configure SystemJS -->
-  <script>
-    System.config({
-        packages: {
-          app: {
-            format: 'register',
-            defaultExtension: 'js'
-          }
-        }
-      });
-      System.import('app/main')
-            .then(null, console.error.bind(console));
+  <script type="text/javascript">
+    angular.element(document.getElementsByTagName('head')).append(angular.element('<base href="' + window.location.pathname + '" />'));
   </script>
-
 </head>
 
-<!-- 3. Display the application -->
+<body ng-app="app">
+  <main></main>
 
-<body>
-  <my-app>Loading...</my-app>
-  
-
+  <script src="/node_modules/@angular/router/angular1/angular_1_router.js"></script>
 </body>
 
 </html>

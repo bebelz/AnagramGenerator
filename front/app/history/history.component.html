@@ -1,0 +1,14 @@
+<div class="panel panel-default">
+	<div class="panel-heading">Historique des recherches</div>
+
+	<table class="table">
+		<thead> 
+			<tr> <th>Mot</th> <th>Date</th>
+		</thead> 
+		<tbody> 
+			<tr ng-repeat="history in vm.history">
+				<td>{{ history.word }}</td> <td>{{ history.date }}</td> 
+			</tr> 
+		</tbody>
+	</table>
+</div>

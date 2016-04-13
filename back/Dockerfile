@@ -1,4 +1,4 @@
-FROM node:5.6.0
+FROM node:5.10.1
 MAINTAINER Benoit BELZ
 
 RUN mkdir /src
