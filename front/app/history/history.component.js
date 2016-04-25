@@ -14,15 +14,21 @@ function HistoryController(anagService) {
 
 	// Attributes
 	vm.history;
+	vm.loading;
+	vm.networkError;
 
+	vm.loading = true;
 	anagService.getHistory(0,10)
 		// Succes
 		.then(function(response) {
+			vm.loading = false;
 			vm.history = response.data;
 		})
 		// Failure
 		.catch(function(error) {
-			console.log("ERROR");
+			vm.loading = false;
+			vm.networkError = true;
+			console.log(error);
 		})
 	;
 }

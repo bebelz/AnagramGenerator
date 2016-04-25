@@ -1,7 +1,15 @@
 <div class="panel panel-default">
 	<div class="panel-heading">Historique des recherches</div>
 
-	<table class="table">
+	<div class="panel-body" ng-if="vm.loading">
+		<p><i class="fa fa-cog fa-spin"></i> Chargement de l'historique ... </p>
+	</div>
+
+	<div class="panel-body" ng-if="vm.networkError">
+		<p><i class="fa fa-exclamation-triangle"></i> Une erreur a eu lieu lors du chargement de l'historique</p>
+	</div>
+
+	<table class="table" ng-if="vm.history">
 		<thead> 
 			<tr> <th>Mot</th> <th>Date</th>
 		</thead> 
