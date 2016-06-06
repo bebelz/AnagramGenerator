@@ -3,11 +3,11 @@
   "version": "1.0.0",
   "main": "src",
   "dependencies": {
-    "knex": "^0.10.0",
-    "mysql2": "^1.0.0-rc.1",
+    "knex": "^0.11.5",
+    "mysql2": "^1.0.0-rc.2",
     "requirejs": "^2.1.22",
     "restify": "^4.0.4",
-    "async": "^1.5.2"
+    "async": "^2.0.0-rc.5"
   },
   "scripts" : {
     "startProd" : "node src/mainProd.js",
