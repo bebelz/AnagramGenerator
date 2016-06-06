@@ -7,3 +7,5 @@ services:
     image: bbz/anag-front:1.0
     ports:
     - "8002:80"
+    volumes:
+    - "~/anag-front:/usr/local/apache2/htdocs/"
