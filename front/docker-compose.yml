@@ -3,9 +3,8 @@ version: 2
 services:
   front:
     container_name: anag-front
-    build: .
-    image: bbz/anag-front:1.0
+    image: httpd:2.4
     ports:
     - "8002:80"
     volumes:
-    - "~/anag-front:/usr/local/apache2/htdocs/"
+    - ".:/usr/local/apache2/htdocs/"
