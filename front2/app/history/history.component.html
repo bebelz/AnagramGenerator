@@ -1,0 +1,22 @@
+<div class="panel panel-default">
+	<div class="panel-heading">Historique des recherches</div>
+
+	<div class="panel-body" *ngIf="loading">
+		<p><i class="fa fa-cog fa-spin"></i> Chargement de l'historique ... </p>
+	</div>
+
+	<div class="panel-body" *ngIf="networkError">
+		<p><i class="fa fa-exclamation-triangle"></i> Une erreur a eu lieu lors du chargement de l'historique</p>
+	</div>
+
+	<table class="table" *ngIf="history">
+		<thead> 
+			<tr> <th>Mot</th> <th>Date</th>
+		</thead> 
+		<tbody> 
+			<tr *ngFor="let history of history">
+				<td>{{ history.word }}</td> <td>{{ history.date }}</td> 
+			</tr> 
+		</tbody>
+	</table>
+</div>

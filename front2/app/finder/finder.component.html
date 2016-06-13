@@ -1,0 +1,32 @@
+<div class="row">
+	<div class="col-md-4"></div>
+
+	<div class="col-xs-12 col-md-4">
+
+		<h1>Anagrammes</h1>
+		<div class="form-group form-group-lg" [ngClass]="{ 'has-error': !validateTyping(word) }">
+			<div class="input-group">
+				<input autofocus type="text" class="form-control" placeholder="Cherchez un mot..." [(ngModel)]="word">
+				<span class="input-group-btn">
+					<button (click)="search(word)" class="btn btn-default btn-lg btn-outline " type="button">
+						<i [ngClass]=" { 'fa-search': !loading, 'fa-cog fa-spin': loading }" class="fa"></i>
+					</button>
+				</span>
+			</div>
+		</div>
+
+		<div class="alert alert-warning" *ngIf="warning">
+			{{ warning }}
+		</div>
+		<div class="alert alert-danger" *ngIf="error">
+			{{ error }}
+		</div>
+
+		<ul class="list-group" *ngIf="anags">
+			<li *ngFor="let anag of anags" class="list-group-item">{{ anag }}</li>
+		</ul>
+
+	</div>
+
+	<div class="col-md-4"></div>
+</div>	
